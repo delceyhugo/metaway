@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+.Header{
+    padding: 10px 0px;
+    background: #151719be;
+    nav{
+        display: grid;
+        grid-template-columns: 1fr 1.75fr 1.2fr;
+        grid-template-rows: 1fr;
+        a{
+            align-self: center;
+            justify-self: end;
+            .logo{
+                width: 64px;
+                height: 64px;
+            }
+        }
+        ul{
+            grid-column: 3;
+            display: flex;
+            margin: 0;
+            align-self: center;
+            justify-self: start;
+            li{
+                list-style: none;
+            }
+        }
+    }
+}

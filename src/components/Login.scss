@@ -1,0 +1,79 @@
+.Login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    .wrapper{
+        background-color: #151719be;
+        border-radius: 20px;
+        position: relative;
+        z-index: 1;
+        &:before{
+            content: "";
+            background:
+            linear-gradient(to right, #f0823893, 2px, transparent 2px) 0 2px,
+            linear-gradient(to left, #f0823893, 2px, transparent 2px) 100% 100%,
+            linear-gradient(to bottom, #f0823893, 2px, transparent 2px) 0 0px,
+            linear-gradient(to top, #f0823893, 2px, transparent 2px) calc(100% - 2px) 100%;
+            background-repeat: no-repeat;
+            background-size: 150px 75px;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container{
+            padding: 3vh 5vw;
+            h2{}
+            p{}
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 30px 5vw;
+                .section{
+                    height: 30px;
+                    border-radius: 5px;
+                    border: 1px solid #9BA9B4;
+                    display: flex;
+                    align-items: center;
+                    padding: 5px 10px;
+                    margin: 10px 0px;
+                    img{
+                        margin-right: 10px;
+                    }
+                    .show-password{
+                        cursor: pointer;
+                        margin: 0;
+                    }
+                    input{
+                        border-radius: 2px;
+                        border: none;
+                        background: none;
+                        height: 100%;
+                        width: 100%;
+                        outline: none;
+                        padding: 0px 10px;
+                        color: #9BA9B4;
+                        font-size: 18px;
+                        font-family: 'Inter', sans-serif;
+                    }
+                }
+                .button{
+                    margin-top: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .button-b{
+                        padding-right: 5vw;
+                        padding-left: 5vw;
+                        border-width: 0px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
