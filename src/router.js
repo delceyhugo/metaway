@@ -5,6 +5,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Admin from './components/Admin';
+import Footer from './components/Footer';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
 
 
 export const router = createBrowserRouter([
@@ -14,6 +17,7 @@ export const router = createBrowserRouter([
       <>
       <Head/>
       <Home/>
+      <Footer/>
     </>),
   },
   {
@@ -22,6 +26,7 @@ export const router = createBrowserRouter([
         <>
           <Head/>
           <Login/>
+          <Footer/>
         </>
         ),
   },
@@ -31,6 +36,7 @@ export const router = createBrowserRouter([
       <>
         <Head/>
         <Signup/>
+        <Footer/>
       </>
       ),
   },
@@ -40,6 +46,27 @@ export const router = createBrowserRouter([
       <>
         <Head/>
         <Admin/>
+        <Footer/>
+      </>
+      ),
+  },
+  {
+    path: "/privacy_policy",
+    element: (
+      <>
+        <Head/>
+        <PrivacyPolicy/>
+        <Footer/>
+      </>
+      ),
+  },
+  {
+    path: "/terms",
+    element: (
+      <>
+        <Head/>
+        <Terms/>
+        <Footer/>
       </>
       ),
   },
@@ -49,6 +76,7 @@ export const router = createBrowserRouter([
       <>
         <Head/>
         <div>Not Found</div>
+        <Footer/>
       </>
       ),
   },

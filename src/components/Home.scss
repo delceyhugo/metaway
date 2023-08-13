@@ -1,10 +1,13 @@
+$dot-width: 10px;
+$dot-color: #3b5998;
+$speed: 1.5s;
 .Home{
     padding-top: 8rem;
     display: grid;
     grid-template-columns: 1fr 2.5fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     position: relative;
-    div{
+    .display{
         grid-column: 2;
         background-color: #151719be;
         position: relative;
@@ -31,6 +34,33 @@
         p{
             margin-bottom: 2rem;
             margin: 0px 8vw 32px 8vw;
+        }
+    }
+    .content{
+        background-color: rgba(21, 23, 25, 0.7450980392);
+        h2{
+            margin-top: 30px;
+        }
+        margin: 80px 0px;
+        flex-direction: column;
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        p{
+            font-size: 16px;
+            a{
+                display: inline;
+                color: #F08138;
+            }
+        }
+        a{
+            width: 20vw;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }

@@ -8,7 +8,7 @@ import Users from './Admin/Users';
 import { redirect } from "react-router-dom";
 
 export default function Admin() {
-    const [auth, setAuth] = useState(JSON.parse(window.localStorage.getItem('auth')));
+    const [auth] = useState(JSON.parse(window.localStorage.getItem('auth')));
     const [tabs, setTabs] = useState(0);
 
 
@@ -30,17 +30,17 @@ export default function Admin() {
             <h1>Admin</h1>
             <nav>
                 <ul>
-                    <li onClick={(e) => changeTabs(e, 0)} className={tabs == 0 ? 'button-c' : 'button-a'}>General</li>
-                    <li onClick={(e) => changeTabs(e, 1)} className={tabs == 1 ? 'button-c' : 'button-a'}>Players</li>
-                    <li onClick={(e) => changeTabs(e, 2)} className={tabs == 2 ? 'button-c' : 'button-a'}>Keys</li>
-                    <li onClick={(e) => changeTabs(e, 3)} className={tabs == 3 ? 'button-c' : 'button-a'}>Users</li>
+                    <li onClick={(e) => changeTabs(e, 0)} className={tabs === 0 ? 'button-c' : 'button-a'}>General</li>
+                    <li onClick={(e) => changeTabs(e, 1)} className={tabs === 1 ? 'button-c' : 'button-a'}>Players</li>
+                    <li onClick={(e) => changeTabs(e, 2)} className={tabs === 2 ? 'button-c' : 'button-a'}>Keys</li>
+                    <li onClick={(e) => changeTabs(e, 3)} className={tabs === 3 ? 'button-c' : 'button-a'}>Users</li>
                 </ul>
             </nav>
             <div className='wrapper'>
-                {tabs == 0 ? <General/> : null}
-                {tabs == 1 ? <Players/> : null}
-                {tabs == 2 ? <Keys/> : null}
-                {tabs == 3 ? <Users/> : null}
+                {tabs === 0 ? <General/> : null}
+                {tabs === 1 ? <Players/> : null}
+                {tabs === 2 ? <Keys/> : null}
+                {tabs === 3 ? <Users/> : null}
             </div>
 
 
