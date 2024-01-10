@@ -1,5 +1,5 @@
 .Admin{
-    margin-top: 40px;
+    margin: 20vh 0px;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: auto ;
@@ -8,7 +8,6 @@
     }
     nav{
         width: 60%;
-        margin-top: 20vh;
         grid-column: 1;
         grid-row: 2;
         position: relative;

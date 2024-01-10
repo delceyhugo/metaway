@@ -8,6 +8,7 @@ import Admin from './components/Admin';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
+import Three from './components/Three';
 
 
 export const router = createBrowserRouter([
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: (
       <>
-      <Head/>
+      {/* <Head/> */}
       <Home/>
       <Footer/>
     </>),
@@ -67,6 +68,14 @@ export const router = createBrowserRouter([
         <Head/>
         <Terms/>
         <Footer/>
+      </>
+      ),
+  },
+  {
+    path: "/3d",
+    element: (
+      <>
+        <Three/>
       </>
       ),
   },

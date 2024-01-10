@@ -1,76 +1,67 @@
 import './Home.scss';
 import { useState, useEffect, useRef } from "react";
+import mainLogo from'../assets/Raw_Transparent_Crop.png';
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 
 export default function Home() {
-    const [version, setVersion] = useState("loading")
-    const timer = useRef(null)
 
-    const downloadClick = (e) =>{
-        clearTimeout(timer.current)
-        e.target.classList.remove("button-b")
-        e.target.classList.add("button-c")
-        e.target.innerHTML = 'Download Started'
-        timer.current = setTimeout(() => {
-            e.target.classList.remove("button-c")
-            e.target.classList.add("button-b")
-            e.target.innerHTML = 'Download Game'
-        }, 3000)
-    }
     useEffect(() => {
-        getGameVersion()
+        // First part
+        gsap.to('.fullscreen', {
+            backgroundColor: '#15171900',
+            duration: 3,
+            ease: "power1.out"
+        })
+        gsap.to('.first-display', {
+            opacity: 1,
+            duration: 3,
+            ease: "power1.out"
+        })
+
+
+        document.querySelectorAll('.display').forEach((el) => {
+            gsap.to(el, {
+                scrollTrigger:{
+                    trigger: el,
+                    start: "top 75%",
+                    end: 'top 75%',
+                    scrub: true,
+                    ease: "power1.out",
+                },
+                opacity: 1,
+                duration: 2
+            })
+        })
+
+
     }, [])
-    const getGameVersion = () => {
-        fetch(process.env.REACT_APP_APIURL + '/access/getGameVersion', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.error){
-                console.log(data.error);
-            }
-            else{
-                // setData(data)
-                console.log(data[0].gameVersion);
-                setVersion(data[0].gameVersion)
-            }
-        })
-    }
-
-
-
-
     return (
         <div className="Home">
-            <div className='display'>
-                <h1>We are Metaway Studio</h1>
-                <p>A team of passionate indie game developers. Aims to create unique and captivating gaming experiences.</p>
+            <div className='fullscreen'>
+                <div className='first-display' style={{opacity: '0'}}>
+                    <img className="logo" src={mainLogo} alt="Logo"/>
+                    <h1>We are Metaway Studio</h1>
+                    <p>A small team of french indie game developers. Aims to create unique and fun gaming experiences.</p>
+                </div>
             </div>
-            <div className='content'>
-                <h2>Private Alpha</h2>
-                <p>We are thrilled to announce that the private alpha of our game is about to begin! <br />
-                 Your participation is crucial in helping us with you feedback before its official launch. <br />
-                  We sincerely thank you for joining this important phase of development.</p>
-                <h2>How to help us ?</h2>
-                <p>Feel free to share your reactions, ideas, and observations on game mechanics, balance, or any other aspects on <a href="https://discord.gg/mKmgta9cM8">Discord</a>. <br />
-                 Your feedback will help us fine-tune and optimize the game.
-                 </p>
-                <h2>Warning</h2>
-                <p>Remember, this alpha version is a snapshot of the development journey. <br />
-                 As an alpha version, our game is a work in progress, and you might encounter various bugs, temporary user interface, incomplete features, and rough edges.</p>
-                <h2>How to play ?</h2>
-                <p>Download the game below. <br />
-                 You must be connected to steam and have a key.<br /> 
-                 You will be asked for your key when launching the game. <br />
-                 You don't have any key ? ask us on <a href="https://discord.gg/mKmgta9cM8">Discord</a> or <a href="https://twitter.com/MetawayStudio">Twitter</a>
-                 </p>
-                <a onClick={(e) => downloadClick(e)} className="button-b" href={`https://www.googleapis.com/drive/v3/files/${process.env.REACT_APP_DOWNLOADID}?alt=media&key=${process.env.REACT_APP_APIGOOGLE}`} download="Metaway_Studio_Game">Download Game</a>
-                <p>Version : {version === 'loading' ? 'Loading . . . ' : version}</p>
-                <p>*For Windows only</p>
+            <div className='display' style={{opacity: '0'}}>
+                <h1>About Us</h1>
+                <p>As two avid gamers turned creators, we founded this independent studio with a shared vision</p>
+                <p>We use all the tools at our disposal to create fun, trendy games, or games requested by players</p>
+                <p>Being two self-taught video game developers, we are not afraid to learn everything video games can teach us.</p>
+            </div>
+            <div className='display' style={{opacity: '0'}}>
+                <h1>Proximity to Players and Collaborative Creativity</h1>
+                <p>The gaming community is at the core of our universe.</p>
+                <p>We're not just game developers; we're players too. We value your creativity and believe in the power of collaboration.</p>
+                <p>That's why we actively seek and welcome your ideas to shape our games. Your input isn't just appreciated; it's integral to our development process.</p>
+                <p>Join us in creating games that reflect the collective imagination of our community, where players aren't just the audience but essential contributors to the gaming experience.</p>
             </div>
         </div>
     );
 }
-
-
-// https://www.googleapis.com/drive/v3/files/10ySskGCnHb_I5xneIsMTfpNzuGfCQQvS?alt=media&key=AIzaSyAXigUsXQqeMuriomMa0Z07bv01dId-Vlo

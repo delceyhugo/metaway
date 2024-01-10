@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <div className='App'>
-    <RouterProvider router={router} />
+        <RouterProvider router={router} />
   </div>
 
   // </React.StrictMode>
